@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="COLEGIO" Class="ColegioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=COLEGIO;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="COLEGIOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Curso" Member="Curso">
+    <Type Name="Curso">
+      <Column Name="IdCurso" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Detalle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Curso_Material" Member="Material" ThisKey="IdCurso" OtherKey="IdCurso" Type="Material" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Material" Member="Material">
+    <Type Name="Material">
+      <Column Name="IdMaterial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Detalle" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdCurso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Curso_Material" Member="Curso" ThisKey="IdCurso" OtherKey="IdCurso" Type="Curso" IsForeignKey="true" />
+      <Association Name="usuarios_Material" Member="usuarios" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="usuarios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tipoUsuario" Member="tipoUsuario">
+    <Type Name="tipoUsuario">
+      <Column Name="IdTipoUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Detalle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="tipoUsuario_usuarios" Member="usuarios" ThisKey="IdTipoUsuario" OtherKey="IdTipoUsuario" Type="usuarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.usuarios" Member="usuarios">
+    <Type Name="usuarios">
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contrasena" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Activo" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="usuarios_Material" Member="Material" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Material" />
+      <Association Name="tipoUsuario_usuarios" Member="tipoUsuario" ThisKey="IdTipoUsuario" OtherKey="IdTipoUsuario" Type="tipoUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

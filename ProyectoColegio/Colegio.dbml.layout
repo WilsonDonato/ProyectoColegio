@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Colegio">
+  <DataContextMoniker Name="/ColegioDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d90b3fb7-9702-4acb-a6ca-25566893f756" absoluteBounds="3.5, 4.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ColegioDataContext/Curso" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9355cb2e-7f7d-4786-b48d-43279779c49f" absoluteBounds="3.515, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b28c675d-e63e-44a6-9025-c235876551e3" absoluteBounds="6.25, 1.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ColegioDataContext/Material" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97108ac7-7869-490e-88d3-a522cda5b5cb" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1648a328-7a30-4c8b-aa0b-f134f4632096" absoluteBounds="0.75, 1.625, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/ColegioDataContext/tipoUsuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="875eebc5-c628-4319-940f-3e87a28ac6fa" absoluteBounds="0.765, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ba654ce-bc36-458d-859b-7d54588d729e" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ColegioDataContext/usuarios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93174a7f-9d7d-4b0c-9c4e-1023b46e4510" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.81814697265625); (7.25 : 4.81814697265625); (7.25 : 3.47280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ColegioDataContext/Curso/Curso_Material" />
+      <nodes>
+        <classShapeMoniker Id="d90b3fb7-9702-4acb-a6ca-25566893f756" />
+        <classShapeMoniker Id="b28c675d-e63e-44a6-9025-c235876551e3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.29890055338542); (6.25 : 2.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ColegioDataContext/usuarios/usuarios_Material" />
+      <nodes>
+        <classShapeMoniker Id="9ba654ce-bc36-458d-859b-7d54588d729e" />
+        <classShapeMoniker Id="b28c675d-e63e-44a6-9025-c235876551e3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.31814697265625); (3.5 : 2.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ColegioDataContext/tipoUsuario/tipoUsuario_usuarios" />
+      <nodes>
+        <classShapeMoniker Id="1648a328-7a30-4c8b-aa0b-f134f4632096" />
+        <classShapeMoniker Id="9ba654ce-bc36-458d-859b-7d54588d729e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
